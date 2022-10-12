@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TouchEventTest">
+
+    <TextView
+        android:id="@+id/Touch_area"
+        android:layout_width="409dp"
+        android:layout_height="333dp"
+        android:background="#2196F3"
+        android:text="Touch_area"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/history_label"
+        android:layout_width="409dp"
+        android:layout_height="228dp"
+        android:background="#CDDC39"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/event_label" />
+
+    <TextView
+        android:id="@+id/event_label"
+        android:layout_width="409dp"
+        android:layout_height="163dp"
+        android:background="#009688"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Touch_area" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_doctor.xml" value="0.42617753623188404" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_draw_demo.xml" value="0.24003623188405798" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_key_event.xml" value="0.24048913043478262" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_key_event_test.xml" value="0.18" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_login.xml" value="0.42617753623188404" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_main.xml" value="0.3104166666666667" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_main2.xml" value="0.29583333333333334" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_main3.xml" value="0.21" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_main4.xml" value="0.24864130434782608" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_menu.xml" value="0.24048913043478262" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_tab.xml" value="0.22" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_touch_event_test.xml" value="0.24048913043478262" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/main.xml" value="0.42617753623188404" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/menu/main.xml" value="0.3223958333333333" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/menu/main_menu.xml" value="0.30520833333333336" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/app/src/main/res/layout/activity_main2.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
