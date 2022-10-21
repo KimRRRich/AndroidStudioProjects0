@@ -6,6 +6,7 @@ import androidx.loader.app.LoaderManager;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 //import android.support.v7.app.AppCompatActivity;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
@@ -26,8 +28,8 @@ import java.lang.reflect.Method;
 public class MainActivity extends AppCompatActivity {
 
     TextView textView,LabelView;
-    Button button,GoToSchool,GoToStudent,GoToDoctor,GoToLogin,GoToTab,GoToKeyEvent,GoToTouchEvent,GoToDrawDemo;
-
+    Button button,GoToSchool,GoToStudent,GoToDoctor,GoToLogin,GoToTab,GoToKeyEvent,GoToTouchEvent,GoToDrawDemo,GoToIntent,SendMsg;
+    EditText account;
     final static int MENU_00 = Menu.FIRST;
     final static int MENU_01 = Menu.FIRST+1;
     final static int MENU_02 = Menu.FIRST+2;
@@ -64,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
         GoToKeyEvent=(Button) findViewById(R.id.GoToKeyEvent);
         GoToTouchEvent=(Button)findViewById(R.id.GoToTouchEvent);
         GoToDrawDemo=(Button) findViewById(R.id.GoToDrawDemo);
+        GoToIntent=(Button)findViewById(R.id.GoToIntent);
+        SendMsg=(Button)findViewById(R.id.SendMsg);
+
+        account=(EditText)findViewById(R.id.editTextTextPersonName2);
 ////方法一，先生成一个类，再实例化类，再注册到监听器
 //        ButtonListener buttonListener=new ButtonListener();
 //        button.setOnClickListener(buttonListener);
@@ -165,6 +171,33 @@ public class MainActivity extends AppCompatActivity {
                 //Toast.makeText(MainActivity.this,"成功切换到第四个界面",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this,DrawDemo.class);
                 startActivity(intent);
+            }
+        });
+
+        GoToIntent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Log.i("zx","666");
+                //Toast.makeText(MainActivity.this,"成功切换到第四个界面",Toast.LENGTH_LONG).show();
+                Intent intent1 = new Intent(MainActivity.this, com.example.myapplication.Intent.class);
+                Intent intent2=new Intent(Intent.ACTION_VIEW, Uri.parse("abcd://efghijk"));
+                Intent intent3=new Intent(Intent.ACTION_DIAL,Uri.parse("tel:19818519509"));
+                startActivity(intent2);
+            }
+        });
+
+        SendMsg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               String s1=account.getText().toString();
+               float s2= 3.141592657f;
+               String Unique_String="zhouxiao";
+               Intent intent=new Intent(Unique_String);
+               intent.putExtra("Account",s1);
+               intent.putExtra("Pai",s2);
+               sendBroadcast(intent);
+               Intent intent1=new Intent(MainActivity.this,Receive.class);
+               startActivity(intent1);
             }
         });
 
