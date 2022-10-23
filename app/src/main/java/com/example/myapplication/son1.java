@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.content.Intent;
 
 public class son1 extends AppCompatActivity {
-    Button Commit;
+    Button Commit,Quit;
     EditText NameText,TelText;
 
     @Override
@@ -21,6 +21,7 @@ public class son1 extends AppCompatActivity {
         Commit=(Button) findViewById(R.id.Commit);
         NameText=(EditText)findViewById(R.id.TelName);
         TelText=(EditText)findViewById(R.id.TelName1);
+        Quit=findViewById(R.id.Quit);
 
 
 
@@ -35,6 +36,14 @@ public class son1 extends AppCompatActivity {
                 result.putExtra("Telnumber",msg2);
                 setResult(Activity.RESULT_OK,result);
                 finish();
+            }
+        });
+
+        Quit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(son1.this,MainActivity.class);
+                startActivity(intent);
             }
         });
 

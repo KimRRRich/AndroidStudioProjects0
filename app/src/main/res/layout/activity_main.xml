@@ -13,12 +13,13 @@
         android:id="@+id/LoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:scaleX="2"
-        android:scaleY="2"
-        android:text="切换界面"
+        android:layout_marginTop="28dp"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:text="登录"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TelNumber" />
 
@@ -26,8 +27,8 @@
         android:id="@+id/StudentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
         android:text="学生信息输入界面"
         android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="1dp"
-        android:text="联系人"
+        android:text="用户名"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/Main_NameText"
@@ -54,7 +55,6 @@
         android:layout_marginBottom="580dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView11"
@@ -66,13 +66,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="12dp"
-        android:text="电话"
+        android:layout_marginTop="22dp"
+        android:text="密码"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Main_NameText" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <TextView
         android:id="@+id/textView2"
@@ -92,7 +92,7 @@
         android:id="@+id/GoToSchool"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="12dp"
         android:text="最好大学"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,10 +102,10 @@
         android:id="@+id/GoToDoctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:text="博士硕士学士"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintHorizontal_bias="0.013"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/GoToSchool" />
 
@@ -113,10 +113,10 @@
         android:id="@+id/GoToLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:text="登录界面"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/GoToDoctor" />
 
@@ -124,17 +124,17 @@
         android:id="@+id/GoToTab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="97dp"
         android:text="Tab"
         app:layout_constraintStart_toEndOf="@+id/StudentButton"
-        app:layout_constraintTop_toBottomOf="@+id/LoginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/TelNumber" />
 
     <Button
         android:id="@+id/GoToKeyEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="12dp"
         android:text="按键检测"
         app:layout_constraintStart_toEndOf="@+id/GoToSchool"
@@ -144,8 +144,8 @@
         android:id="@+id/GoToTouchEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
         android:text="触摸检测"
         app:layout_constraintStart_toEndOf="@+id/GoToDoctor"
         app:layout_constraintTop_toBottomOf="@+id/GoToKeyEvent" />
@@ -154,8 +154,8 @@
         android:id="@+id/GoToDrawDemo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="4dp"
         android:text="绘制"
         app:layout_constraintStart_toEndOf="@+id/GoToLogin"
         app:layout_constraintTop_toBottomOf="@+id/GoToTouchEvent" />
@@ -164,8 +164,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="68dp"
         android:text="快捷菜单"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -177,21 +177,21 @@
         android:id="@+id/GoToIntent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="132dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="4dp"
         android:text="Intent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ServiceButton"
         app:layout_constraintTop_toBottomOf="@+id/GoToDrawDemo" />
 
     <Button
         android:id="@+id/SendMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="12dp"
         android:text="动态广播"
-        app:layout_constraintStart_toEndOf="@+id/GoToTab"
-        app:layout_constraintTop_toBottomOf="@+id/LoginButton" />
+        app:layout_constraintBottom_toTopOf="@+id/GoToKeyEvent"
+        app:layout_constraintStart_toEndOf="@+id/GoToTab" />
 
     <Button
         android:id="@+id/sendMsg2"
@@ -207,11 +207,11 @@
         android:id="@+id/GoToSon1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="23dp"
-        android:text="子界面"
-        app:layout_constraintStart_toEndOf="@+id/GoToTouchEvent"
-        app:layout_constraintTop_toBottomOf="@+id/sendMsg2" />
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="28dp"
+        android:text="注册"
+        app:layout_constraintStart_toEndOf="@+id/LoginButton"
+        app:layout_constraintTop_toBottomOf="@+id/TelNumber" />
 
     <EditText
         android:id="@+id/TelNumber"
@@ -221,7 +221,6 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/Main_NameText" />
 
@@ -229,10 +228,44 @@
         android:id="@+id/SendMsgToSon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="140dp"
         android:text="发送消息"
         app:layout_constraintStart_toEndOf="@+id/GoToDrawDemo"
         app:layout_constraintTop_toBottomOf="@+id/GoToSon1" />
+
+    <Button
+        android:id="@+id/Thread_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="4dp"
+        android:text="停止线程"
+        app:layout_constraintStart_toEndOf="@+id/GoToIntent"
+        app:layout_constraintTop_toBottomOf="@+id/SendMsgToSon" />
+
+    <TextView
+        android:id="@+id/Time_Text"
+        android:layout_width="127dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="223dp"
+        android:text="Time"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/GoToTab"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/ServiceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="启动服务"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GoToLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

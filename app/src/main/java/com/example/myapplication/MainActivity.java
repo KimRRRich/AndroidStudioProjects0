@@ -1,12 +1,17 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,14 +26,20 @@ import android.content.Intent;
 import android.util.Log;
 
 import java.lang.reflect.Method;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textView,LabelView;
-    Button button,GoToSchool,GoToStudent,GoToDoctor,GoToLogin,GoToTab,GoToKeyEvent,GoToTouchEvent,GoToDrawDemo,GoToIntent,SendMsg,SendMsg2,GoToSon1,SendMsgToSon;
+    TextView textView,LabelView,Time_Text;
+    Button button,GoToSchool,GoToStudent,GoToDoctor,GoToLogin,GoToTab,GoToKeyEvent,GoToTouchEvent,GoToDrawDemo,GoToIntent,SendMsg,SendMsg2,GoToSon1,SendMsgToSon,Thread_Button,Service_Button;
     EditText account,TelNumber;
     DynamicReceiver dynamicReceiver=new DynamicReceiver();
+    Handler handler;
+    Handler HandlerFormMainToThread;
+
+
     final static int MENU_00 = Menu.FIRST;
     final static int MENU_01 = Menu.FIRST+1;
     final static int MENU_02 = Menu.FIRST+2;
@@ -40,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     final static int CONTEXT_MENU_3 = Menu.FIRST+2;
 
     int SUBACTIVITY1 = 1;
+    boolean isThreadWork=true;
+    boolean isServiceStart=false;
 
     class DynamicReceiver extends BroadcastReceiver{
         @Override
@@ -48,6 +61,47 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(context,"账号："+msg,Toast.LENGTH_SHORT).show();
         }
     }
+
+    class WorkThread extends Thread{
+        @Override
+        public void run() {
+            super.run();
+            Looper.prepare();
+            HandlerFormMainToThread= new Handler(){
+                @Override
+                public void handleMessage(@NonNull Message msg) {
+                    super.handleMessage(msg);
+                    int ii=(int)msg.what;
+                    System.out.println(ii);
+                }
+            };
+            Looper.loop();
+            System.out.println(Thread.currentThread().getName());
+        }
+    }
+
+    Runnable backgroundWork=new Runnable() {
+        @Override
+        public void run() {
+            while(isThreadWork){
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Message msg=handler.obtainMessage();
+                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH:mm:ss");
+                Date date=new Date(System.currentTimeMillis());
+                msg.obj=simpleDateFormat.format(date).toString();
+                handler.sendMessage(msg);
+                System.out.println("Runable: "+Thread.currentThread().getName());
+            }
+
+        }
+    };
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode,int resultCode,Intent data) {
@@ -76,11 +130,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        System.out.println(Thread.currentThread().getName());
+        WorkThread workThread=new WorkThread();
+        workThread.start();
+        Thread workthread2=new Thread(backgroundWork);
+        workthread2.start();
+
+
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.i("HDU","1-1 onCreate");
 
+        Time_Text=(TextView)findViewById(R.id.Time_Text);
         LabelView=(TextView) findViewById(R.id.textView4);
         registerForContextMenu(LabelView);
 
@@ -99,14 +163,22 @@ public class MainActivity extends AppCompatActivity {
         SendMsg2=(Button)findViewById(R.id.sendMsg2);
         GoToSon1=(Button)findViewById(R.id.GoToSon1);
         SendMsgToSon=(Button)findViewById(R.id.SendMsgToSon);
+        Thread_Button=(Button)findViewById(R.id.Thread_Button);
+        Service_Button=(Button)findViewById(R.id.ServiceButton);
 
         account=(EditText)findViewById(R.id.Main_NameText);
         TelNumber=(EditText)findViewById(R.id.TelNumber);
+
+
+        Message MessageFromMainToThread=new Message();
+        MessageFromMainToThread.what=666;
+        HandlerFormMainToThread.sendMessage(MessageFromMainToThread);
 
         IntentFilter filter=new IntentFilter();
         filter.addAction("com.example.jie.Broad");
 
         registerReceiver(dynamicReceiver,filter);
+        final Intent MusicPlay=new Intent(MainActivity.this,PlayMusic.class);
 
 ////方法一，先生成一个类，再实例化类，再注册到监听器
 //        ButtonListener buttonListener=new ButtonListener();
@@ -269,12 +341,56 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        Thread_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isThreadWork){
+                    isThreadWork=false;
+                    Thread_Button.setText("开启线程");
+                }else{
+                    isThreadWork=true;
+                    //workthread2.start();
+                    Thread_Button.setText("停止线程");
+                }
+            }
+        });
+        Service_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isServiceStart==false){
+                    isServiceStart=true;
+                    startService(MusicPlay);
+                    Service_Button.setText("关闭服务");
 
+                }
+                else if(isServiceStart==true){
+                    isServiceStart=false;
+                   stopService(MusicPlay);
+                   Service_Button.setText("启动服务");
+                }
+                else{
+                    //Toast.makeText(this, "(2) 调用onStart()", Toast.LENGTH_SHORT).show();
+                    Service_Button.setText("Wrong!");
+                }
 
+            }
+        });
 
+        handler=new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+            // TODO 自动生成的方法存根
+                super.handleMessage(msg);
+
+                String s=(String)msg.obj;
+                Time_Text.setText(s);
+            }
+        };
 
 
     }
+
+
 
 
 
