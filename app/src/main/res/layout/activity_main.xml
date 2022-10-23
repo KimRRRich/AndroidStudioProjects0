@@ -9,26 +9,25 @@
     tools:context=".MainActivity">
 
 
-
     <Button
         android:id="@+id/LoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="21dp"
         android:scaleX="2"
         android:scaleY="2"
         android:text="切换界面"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword4" />
+        app:layout_constraintTop_toBottomOf="@+id/TelNumber" />
 
     <Button
         android:id="@+id/StudentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:text="学生信息输入界面"
         android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,43 +37,17 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
         android:layout_marginEnd="1dp"
-        android:text="账号"
+        android:text="联系人"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPersonName2"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName2"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Main_NameText"
+        app:layout_constraintEnd_toStartOf="@+id/Main_NameText"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="1dp"
-        android:text="密码"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPassword4"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
-
     <EditText
-        android:id="@+id/editTextTextPassword4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView12" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/Main_NameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="29dp"
@@ -85,19 +58,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="12dp"
+        android:text="电话"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Main_NameText" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="牛了个牛"
         android:textColor="#FF9800"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.058"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -105,8 +92,8 @@
         android:id="@+id/GoToSchool"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:text="最好大学"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/StudentButton" />
@@ -115,10 +102,10 @@
         android:id="@+id/GoToDoctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="4dp"
         android:text="博士硕士学士"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/GoToSchool" />
 
@@ -126,10 +113,10 @@
         android:id="@+id/GoToLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:text="登录界面"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/GoToDoctor" />
 
@@ -137,8 +124,8 @@
         android:id="@+id/GoToTab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="78dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
         android:text="Tab"
         app:layout_constraintStart_toEndOf="@+id/StudentButton"
         app:layout_constraintTop_toBottomOf="@+id/LoginButton" />
@@ -147,8 +134,8 @@
         android:id="@+id/GoToKeyEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="12dp"
         android:text="按键检测"
         app:layout_constraintStart_toEndOf="@+id/GoToSchool"
         app:layout_constraintTop_toBottomOf="@+id/GoToTab" />
@@ -157,8 +144,8 @@
         android:id="@+id/GoToTouchEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="102dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="20dp"
         android:text="触摸检测"
         app:layout_constraintStart_toEndOf="@+id/GoToDoctor"
         app:layout_constraintTop_toBottomOf="@+id/GoToKeyEvent" />
@@ -167,7 +154,7 @@
         android:id="@+id/GoToDrawDemo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="16dp"
         android:text="绘制"
         app:layout_constraintStart_toEndOf="@+id/GoToLogin"
@@ -177,7 +164,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="快捷菜单"
         android:textColor="#000000"
@@ -191,7 +178,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="132dp"
         android:text="Intent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/GoToDrawDemo" />
@@ -200,10 +187,52 @@
         android:id="@+id/SendMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginBottom="16dp"
-        android:text="sendMsg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="34dp"
+        android:text="动态广播"
+        app:layout_constraintStart_toEndOf="@+id/GoToTab"
+        app:layout_constraintTop_toBottomOf="@+id/LoginButton" />
+
+    <Button
+        android:id="@+id/sendMsg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="静态广播"
+        app:layout_constraintStart_toEndOf="@+id/GoToKeyEvent"
+        app:layout_constraintTop_toBottomOf="@+id/SendMsg" />
+
+    <Button
+        android:id="@+id/GoToSon1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="23dp"
+        android:text="子界面"
+        app:layout_constraintStart_toEndOf="@+id/GoToTouchEvent"
+        app:layout_constraintTop_toBottomOf="@+id/sendMsg2" />
+
+    <EditText
+        android:id="@+id/TelNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/Main_NameText" />
+
+    <Button
+        android:id="@+id/SendMsgToSon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="17dp"
+        android:text="发送消息"
+        app:layout_constraintStart_toEndOf="@+id/GoToDrawDemo"
+        app:layout_constraintTop_toBottomOf="@+id/GoToSon1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

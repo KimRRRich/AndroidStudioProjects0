@@ -1,11 +1,10 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.app.LoaderManager;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.location.Location;
-import android.location.LocationManager;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -19,7 +18,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 
 import java.lang.reflect.Method;
@@ -28,8 +26,9 @@ import java.lang.reflect.Method;
 public class MainActivity extends AppCompatActivity {
 
     TextView textView,LabelView;
-    Button button,GoToSchool,GoToStudent,GoToDoctor,GoToLogin,GoToTab,GoToKeyEvent,GoToTouchEvent,GoToDrawDemo,GoToIntent,SendMsg;
-    EditText account;
+    Button button,GoToSchool,GoToStudent,GoToDoctor,GoToLogin,GoToTab,GoToKeyEvent,GoToTouchEvent,GoToDrawDemo,GoToIntent,SendMsg,SendMsg2,GoToSon1,SendMsgToSon;
+    EditText account,TelNumber;
+    DynamicReceiver dynamicReceiver=new DynamicReceiver();
     final static int MENU_00 = Menu.FIRST;
     final static int MENU_01 = Menu.FIRST+1;
     final static int MENU_02 = Menu.FIRST+2;
@@ -40,6 +39,34 @@ public class MainActivity extends AppCompatActivity {
     final static int CONTEXT_MENU_2 = Menu.FIRST+1;
     final static int CONTEXT_MENU_3 = Menu.FIRST+2;
 
+    int SUBACTIVITY1 = 1;
+
+    class DynamicReceiver extends BroadcastReceiver{
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String msg=intent.getStringExtra("Account");
+            Toast.makeText(context,"账号："+msg,Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode,int resultCode,Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==SUBACTIVITY1){
+            String msg1=data.getStringExtra("NameText");
+            String msg2=data.getStringExtra("Telnumber");
+            Toast t=Toast.makeText(this,msg1,Toast.LENGTH_SHORT);
+            t.show();
+            account.setText(msg1);
+            TelNumber.setText(msg2);
+
+            //Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
+            //Toast t=new Toast();
+            //account.setText();
+        }
+
+    }
+
 //    String serviceString= Context.LOCATION_SERVICE;
 //    LocationManager locationManager=(LocationManager) getSystemService(serviceString);
 //    String provider=LocationManager.GPS_PROVIDER;
@@ -49,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.i("HDU","1-1 onCreate");
@@ -68,8 +96,18 @@ public class MainActivity extends AppCompatActivity {
         GoToDrawDemo=(Button) findViewById(R.id.GoToDrawDemo);
         GoToIntent=(Button)findViewById(R.id.GoToIntent);
         SendMsg=(Button)findViewById(R.id.SendMsg);
+        SendMsg2=(Button)findViewById(R.id.sendMsg2);
+        GoToSon1=(Button)findViewById(R.id.GoToSon1);
+        SendMsgToSon=(Button)findViewById(R.id.SendMsgToSon);
 
-        account=(EditText)findViewById(R.id.editTextTextPersonName2);
+        account=(EditText)findViewById(R.id.Main_NameText);
+        TelNumber=(EditText)findViewById(R.id.TelNumber);
+
+        IntentFilter filter=new IntentFilter();
+        filter.addAction("com.example.jie.Broad");
+
+        registerReceiver(dynamicReceiver,filter);
+
 ////方法一，先生成一个类，再实例化类，再注册到监听器
 //        ButtonListener buttonListener=new ButtonListener();
 //        button.setOnClickListener(buttonListener);
@@ -180,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
                 //Log.i("zx","666");
                 //Toast.makeText(MainActivity.this,"成功切换到第四个界面",Toast.LENGTH_LONG).show();
                 Intent intent1 = new Intent(MainActivity.this, com.example.myapplication.Intent.class);
-                Intent intent2=new Intent(Intent.ACTION_VIEW, Uri.parse("abcd://efghijk"));
+                Intent intent2=new Intent(Intent.ACTION_VIEW, Uri.parse("schemodemo://edu.hrbeu"));
                 Intent intent3=new Intent(Intent.ACTION_DIAL,Uri.parse("tel:19818519509"));
                 startActivity(intent2);
             }
@@ -191,20 +229,61 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                String s1=account.getText().toString();
                float s2= 3.141592657f;
-               String Unique_String="zhouxiao";
-               Intent intent=new Intent(Unique_String);
-               intent.putExtra("Account",s1);
-               intent.putExtra("Pai",s2);
-               sendBroadcast(intent);
-               Intent intent1=new Intent(MainActivity.this,Receive.class);
-               startActivity(intent1);
+                Intent intent=new Intent();
+                intent.setAction("com.example.jie.Broad");
+                intent.putExtra("Account",s1);
+                sendBroadcast(intent);
+            }
+        });
+
+        SendMsg2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s1=account.getText().toString();
+                float s2= 3.141592657f;
+                Intent intent=new Intent();
+                intent.setAction("com.example.jie.Broad");
+                intent.putExtra("Account",s1);
+                sendBroadcast(intent);
+            }
+        });
+
+        GoToSon1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(MainActivity.this,son1.class);
+                startActivityForResult(intent,SUBACTIVITY1);
+            }
+        });
+
+        SendMsgToSon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String accout = account.getText().toString();
+                String telnumber=TelNumber.getText().toString();
+                Intent intent=new Intent(MainActivity.this,son2.class);
+                intent.putExtra("Account",accout);
+                intent.putExtra("TelNumber",telnumber);
+                startActivity(intent);
+
             }
         });
 
 
 
 
+
     }
+
+
+
+
+
+
+
+
+
 
 //    //方法一中的创建一个内部类
 //    class ButtonListener implements View.OnClickListener{
@@ -325,6 +404,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause(){
         super.onPause();
         Log.i("HDU","1-7 onPause()");
+        unregisterReceiver(dynamicReceiver);
     }
 
     @Override
@@ -338,6 +418,8 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         Log.i("HDU","1-9 onDestroy()");
     }
+
+
 
 
 
