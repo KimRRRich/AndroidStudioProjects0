@@ -33,7 +33,8 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     TextView textView,LabelView,Time_Text;
-    Button button,GoToSchool,GoToStudent,GoToDoctor,GoToLogin,GoToTab,GoToKeyEvent,GoToTouchEvent,GoToDrawDemo,GoToIntent,SendMsg,SendMsg2,GoToSon1,SendMsgToSon,Thread_Button,Service_Button;
+    Button button,GoToSchool,GoToStudent,GoToDoctor,GoToLogin,GoToTab,GoToKeyEvent,GoToTouchEvent,GoToDrawDemo,GoToIntent,SendMsg,SendMsg2,GoToSon1,SendMsgToSon,Thread_Button,Service_Button,StopService_Button,StartThread_Button;
+    Button GoToSimpleMathService;
     EditText account,TelNumber;
     DynamicReceiver dynamicReceiver=new DynamicReceiver();
     Handler handler;
@@ -51,14 +52,15 @@ public class MainActivity extends AppCompatActivity {
     final static int CONTEXT_MENU_3 = Menu.FIRST+2;
 
     int SUBACTIVITY1 = 1;
-    boolean isThreadWork=true;
+    boolean isThreadWork=false;
+    boolean isThreadStart=false;
     boolean isServiceStart=false;
 
     class DynamicReceiver extends BroadcastReceiver{
         @Override
         public void onReceive(Context context, Intent intent) {
             String msg=intent.getStringExtra("Account");
-            Toast.makeText(context,"账号："+msg,Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"动态广播：用户名："+msg,Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -83,20 +85,21 @@ public class MainActivity extends AppCompatActivity {
     Runnable backgroundWork=new Runnable() {
         @Override
         public void run() {
-            while(isThreadWork){
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+            while(true) {
+                while (isThreadWork) {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Message msg = handler.obtainMessage();
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+                    Date date = new Date(System.currentTimeMillis());
+                    msg.obj = simpleDateFormat.format(date).toString();
+                    handler.sendMessage(msg);
+                    System.out.println("Runable: " + Thread.currentThread().getName());
                 }
-                Message msg=handler.obtainMessage();
-                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH:mm:ss");
-                Date date=new Date(System.currentTimeMillis());
-                msg.obj=simpleDateFormat.format(date).toString();
-                handler.sendMessage(msg);
-                System.out.println("Runable: "+Thread.currentThread().getName());
             }
-
         }
     };
 
@@ -136,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         WorkThread workThread=new WorkThread();
         workThread.start();
         Thread workthread2=new Thread(backgroundWork);
-        workthread2.start();
+        //workthread2.start();
 
 
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -165,6 +168,9 @@ public class MainActivity extends AppCompatActivity {
         SendMsgToSon=(Button)findViewById(R.id.SendMsgToSon);
         Thread_Button=(Button)findViewById(R.id.Thread_Button);
         Service_Button=(Button)findViewById(R.id.ServiceButton);
+        StopService_Button=(Button)findViewById(R.id.CloseServeButton);
+        StartThread_Button=findViewById(R.id.StartThread_Button);
+        GoToSimpleMathService=findViewById(R.id.GoToSimpleMathService);
 
         account=(EditText)findViewById(R.id.Main_NameText);
         TelNumber=(EditText)findViewById(R.id.TelNumber);
@@ -344,37 +350,52 @@ public class MainActivity extends AppCompatActivity {
         Thread_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isThreadWork){
                     isThreadWork=false;
-                    Thread_Button.setText("开启线程");
+                    Toast t=Toast.makeText(MainActivity.this,"关闭线程",Toast.LENGTH_SHORT);
+                    t.show();
+            }
+        });
+        StartThread_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isThreadStart==false){
+                    isThreadStart=true;
+                    isThreadWork=true;
+                    workthread2.start();
+                    Toast t=Toast.makeText(MainActivity.this,"开启线程",Toast.LENGTH_SHORT);
+                    t.show();
+
                 }else{
                     isThreadWork=true;
-                    //workthread2.start();
-                    Thread_Button.setText("停止线程");
                 }
             }
         });
+
         Service_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isServiceStart==false){
                     isServiceStart=true;
                     startService(MusicPlay);
-                    Service_Button.setText("关闭服务");
-
-                }
-                else if(isServiceStart==true){
-                    isServiceStart=false;
-                   stopService(MusicPlay);
-                   Service_Button.setText("启动服务");
-                }
-                else{
-                    //Toast.makeText(this, "(2) 调用onStart()", Toast.LENGTH_SHORT).show();
-                    Service_Button.setText("Wrong!");
-                }
-
+                    //Service_Button.setText("关闭服务");
             }
         });
+
+        StopService_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isServiceStart=false;
+                stopService(MusicPlay);
+            }
+        });
+
+        GoToSimpleMathService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,SimpleMath.class);
+                startActivity(intent);
+            }
+        });
+
 
         handler=new Handler(){
             @Override

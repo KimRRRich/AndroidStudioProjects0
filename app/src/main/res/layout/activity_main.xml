@@ -144,7 +144,7 @@
         android:id="@+id/GoToTouchEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="触摸检测"
         app:layout_constraintStart_toEndOf="@+id/GoToDoctor"
@@ -154,10 +154,10 @@
         android:id="@+id/GoToDrawDemo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="6dp"
         android:text="绘制"
-        app:layout_constraintStart_toEndOf="@+id/GoToLogin"
+        app:layout_constraintStart_toStartOf="@+id/GoToTouchEvent"
         app:layout_constraintTop_toBottomOf="@+id/GoToTouchEvent" />
 
     <TextView
@@ -177,20 +177,22 @@
         android:id="@+id/GoToIntent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="69dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
         android:text="Intent"
-        app:layout_constraintStart_toEndOf="@+id/ServiceButton"
-        app:layout_constraintTop_toBottomOf="@+id/GoToDrawDemo" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GoToLogin" />
 
     <Button
         android:id="@+id/SendMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="16dp"
         android:text="动态广播"
         app:layout_constraintBottom_toTopOf="@+id/GoToKeyEvent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/GoToTab" />
 
     <Button
@@ -200,6 +202,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:text="静态广播"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toEndOf="@+id/GoToKeyEvent"
         app:layout_constraintTop_toBottomOf="@+id/SendMsg" />
 
@@ -228,44 +232,79 @@
         android:id="@+id/SendMsgToSon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="140dp"
-        android:text="发送消息"
-        app:layout_constraintStart_toEndOf="@+id/GoToDrawDemo"
-        app:layout_constraintTop_toBottomOf="@+id/GoToSon1" />
-
-    <Button
-        android:id="@+id/Thread_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="6dp"
         android:layout_marginTop="4dp"
-        android:text="停止线程"
-        app:layout_constraintStart_toEndOf="@+id/GoToIntent"
-        app:layout_constraintTop_toBottomOf="@+id/SendMsgToSon" />
+        android:text="发送消息"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/sendMsg2"
+        app:layout_constraintTop_toBottomOf="@+id/sendMsg2" />
 
     <TextView
         android:id="@+id/Time_Text"
-        android:layout_width="127dp"
-        android:layout_height="0dp"
+        android:layout_width="189dp"
+        android:layout_height="57dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="223dp"
         android:text="Time"
-        android:textColor="#000000"
-        android:textSize="24sp"
+        android:textColor="#E91E63"
+        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/GoToTab"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/StartThread_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="52dp"
+        android:text="启动线程"
+        app:layout_constraintBottom_toBottomOf="@+id/Thread_Button"
+        app:layout_constraintStart_toEndOf="@+id/ServiceButton" />
+
+    <Button
         android:id="@+id/ServiceButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="156dp"
         android:text="启动服务"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/GoToLogin" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/StartThread_Button" />
+
+    <Button
+        android:id="@+id/CloseServeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="6dp"
+        android:text="关闭服务"
+        app:layout_constraintEnd_toEndOf="@+id/ServiceButton"
+        app:layout_constraintTop_toBottomOf="@+id/ServiceButton" />
+
+    <Button
+        android:id="@+id/Thread_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="76dp"
+        android:text="停止线程"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/CloseServeButton" />
+
+    <Button
+        android:id="@+id/GoToSimpleMathService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:text="算法运算"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SendMsgToSon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

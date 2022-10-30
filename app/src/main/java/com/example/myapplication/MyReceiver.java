@@ -11,7 +11,7 @@ public class MyReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String msg = new String();
         msg=intent.getStringExtra("Account");
-        Toast toast=Toast.makeText(context,"账号："+msg,Toast.LENGTH_SHORT);
+        Toast toast=Toast.makeText(context,"静态广播：账号："+msg,Toast.LENGTH_SHORT);
         toast.show();
     }
 }
