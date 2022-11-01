@@ -96,8 +96,11 @@ public class MainActivity extends AppCompatActivity {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
                     Date date = new Date(System.currentTimeMillis());
                     msg.obj = simpleDateFormat.format(date).toString();
+                    //Log.i("TimeThread:",simpleDateFormat.format(date).toString());
                     handler.sendMessage(msg);
                     System.out.println("Runable: " + Thread.currentThread().getName());
+                    System.out.println("TimeThread: " +simpleDateFormat.format(date).toString() );
+
                 }
             }
         }

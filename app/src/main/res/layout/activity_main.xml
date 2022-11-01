@@ -246,11 +246,9 @@
         android:layout_height="57dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="223dp"
         android:text="Time"
         android:textColor="#E91E63"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/GoToTab"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent" />
 
