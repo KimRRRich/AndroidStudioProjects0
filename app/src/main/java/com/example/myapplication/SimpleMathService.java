@@ -7,6 +7,7 @@ import android.os.IBinder;
 import android.widget.Toast;
 
 public class SimpleMathService extends Service {
+
     public class LocalBinder extends Binder{
         SimpleMathService getService(){
             return SimpleMathService.this;

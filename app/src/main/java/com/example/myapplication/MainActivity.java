@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView,LabelView,Time_Text;
     Button button,GoToSchool,GoToStudent,GoToDoctor,GoToLogin,GoToTab,GoToKeyEvent,GoToTouchEvent,GoToDrawDemo,GoToIntent,SendMsg,SendMsg2,GoToSon1,SendMsgToSon,Thread_Button,Service_Button,StopService_Button,StartThread_Button;
-    Button GoToSimpleMathService;
+    Button GoToSimpleMathService,GoToDataSaving;
     EditText account,TelNumber;
     DynamicReceiver dynamicReceiver=new DynamicReceiver();
     Handler handler;
@@ -174,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
         StopService_Button=(Button)findViewById(R.id.CloseServeButton);
         StartThread_Button=findViewById(R.id.StartThread_Button);
         GoToSimpleMathService=findViewById(R.id.GoToSimpleMathService);
+        GoToDataSaving=findViewById(R.id.DataSave_Button);
 
         account=(EditText)findViewById(R.id.Main_NameText);
         TelNumber=(EditText)findViewById(R.id.TelNumber);
@@ -298,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Log.i("zx","666");
                 //Toast.makeText(MainActivity.this,"成功切换到第四个界面",Toast.LENGTH_LONG).show();
-                Intent intent1 = new Intent(MainActivity.this, com.example.myapplication.Intent.class);
+                //Intent intent1 = new Intent(MainActivity.this, com.example.myapplication.Intent.class);
                 Intent intent2=new Intent(Intent.ACTION_VIEW, Uri.parse("schemodemo://edu.hrbeu"));
                 Intent intent3=new Intent(Intent.ACTION_DIAL,Uri.parse("tel:19818519509"));
                 startActivity(intent2);
@@ -410,6 +411,14 @@ public class MainActivity extends AppCompatActivity {
                 Time_Text.setText(s);
             }
         };
+
+        GoToDataSaving.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,DataSaving.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

@@ -15,11 +15,32 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+
+
 public class SimpleMath extends AppCompatActivity {
-    Button BindService_Button,unBindService_Button, Calculate_Button;
+    Button BindService_Button,unBindService_Button, Calculate_Button,StartMathThread_Button,StopMathThread_Button;
     TextView Display_Text,RandomValue;
     SimpleMathService mathService;
     Random rand=new Random();
+    boolean isSimpleMathThreadWork=false;
+    boolean isStart=false;
+
+    Runnable SimpleMathThread=new Runnable() {
+        @Override
+        public void run() {
+            while(true) {
+                while(isSimpleMathThreadWork){
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    System.out.println("SimpleMathThread is working!");
+                }
+            }
+        }
+    };
 
     private ServiceConnection mConnection=new ServiceConnection() {
         @Override
@@ -47,6 +68,8 @@ public class SimpleMath extends AppCompatActivity {
         Calculate_Button=findViewById(R.id.Calculate_Button);
         Display_Text=findViewById(R.id.Display_Text);
         RandomValue=findViewById(R.id.RandomValue);
+        StartMathThread_Button=findViewById(R.id.StartMathThread_Button);
+        StopMathThread_Button=findViewById(R.id.StopMathThread_Button);
 
         BindService_Button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +108,34 @@ public class SimpleMath extends AppCompatActivity {
                     Display_Text.setText("the bigger one is "+bigger);
                 }
 
+            }
+        });
+
+        StartMathThread_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isStart){
+                    Thread MathThread=new Thread(SimpleMathThread);
+                    MathThread.start();
+                }
+                if(!isSimpleMathThreadWork){
+                    isSimpleMathThreadWork=true;
+                    Toast.makeText(SimpleMath.this,"线程启动",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(SimpleMath.this,"线程已经启动",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        StopMathThread_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isSimpleMathThreadWork){
+                    isSimpleMathThreadWork=false;
+                    Toast.makeText(SimpleMath.this,"线程暂停",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(SimpleMath.this,"线程已经暂停",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

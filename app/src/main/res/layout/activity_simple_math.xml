@@ -57,4 +57,24 @@
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/Calculate_Button"
         app:layout_constraintTop_toBottomOf="@+id/unBindService_Button" />
+
+    <Button
+        android:id="@+id/StopMathThread_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="16dp"
+        android:text="停止线程"
+        app:layout_constraintStart_toEndOf="@+id/unBindService_Button"
+        app:layout_constraintTop_toBottomOf="@+id/StartMathThread_Button" />
+
+    <Button
+        android:id="@+id/StartMathThread_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="22dp"
+        android:text="启动线程"
+        app:layout_constraintStart_toEndOf="@+id/BindService_Button"
+        app:layout_constraintTop_toBottomOf="@+id/Display_Text" />
 </androidx.constraintlayout.widget.ConstraintLayout>
