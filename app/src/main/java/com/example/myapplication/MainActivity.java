@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView,LabelView,Time_Text;
     Button button,GoToSchool,GoToStudent,GoToDoctor,GoToLogin,GoToTab,GoToKeyEvent,GoToTouchEvent,GoToDrawDemo,GoToIntent,SendMsg,SendMsg2,GoToSon1,SendMsgToSon,Thread_Button,Service_Button,StopService_Button,StartThread_Button;
-    Button GoToSimpleMathService,GoToDataSaving;
+    Button GoToSimpleMathService,GoToDataSaving,GoToInsideSaving,GoTONewPage;
     EditText account,TelNumber;
     DynamicReceiver dynamicReceiver=new DynamicReceiver();
     Handler handler;
@@ -175,7 +175,8 @@ public class MainActivity extends AppCompatActivity {
         StartThread_Button=findViewById(R.id.StartThread_Button);
         GoToSimpleMathService=findViewById(R.id.GoToSimpleMathService);
         GoToDataSaving=findViewById(R.id.DataSave_Button);
-
+        GoToInsideSaving=findViewById(R.id.GoToInsideSaving);
+        GoTONewPage=findViewById(R.id.GoToNewPage);
         account=(EditText)findViewById(R.id.Main_NameText);
         TelNumber=(EditText)findViewById(R.id.TelNumber);
 
@@ -416,6 +417,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,DataSaving.class);
+                startActivity(intent);
+            }
+        });
+        GoToInsideSaving.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,InsideSaving1.class);
+                startActivity(intent);
+            }
+        });
+
+        GoTONewPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,Newpage.class);
                 startActivity(intent);
             }
         });

@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_data_base_demo.xml" value="0.2296195652173913" />
         <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_data_saving.xml" value="0.3463541666666667" />
         <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_doctor.xml" value="0.42617753623188404" />
         <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_draw_demo.xml" value="0.24003623188405798" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_inside_saving1.xml" value="0.302536231884058" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_inside_saving2.xml" value="0.2671875" />
         <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_intent.xml" value="0.17980072463768115" />
         <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_key_event.xml" value="0.24048913043478262" />
         <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_key_event_test.xml" value="0.18" />
@@ -15,6 +18,8 @@
         <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_main3.xml" value="0.21" />
         <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_main4.xml" value="0.24864130434782608" />
         <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_menu.xml" value="0.24048913043478262" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_newpage.xml" value="0.2671875" />
+        <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_read_resource_file.xml" value="0.2671875" />
         <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_receive.xml" value="0.75" />
         <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_shared_preferences_login.xml" value="0.21603260869565216" />
         <entry key="..\:/StudyMaterials/AndroidStudioProjects/AndroidStudioProjects0/app/src/main/res/layout/activity_simple_math.xml" value="0.5057291666666667" />

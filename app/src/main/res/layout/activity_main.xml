@@ -13,13 +13,13 @@
         android:id="@+id/LoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:scaleX="1"
         android:scaleY="1"
         android:text="登录"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TelNumber" />
 
@@ -124,8 +124,8 @@
         android:id="@+id/GoToTab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="97dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="56dp"
         android:text="Tab"
         app:layout_constraintStart_toEndOf="@+id/StudentButton"
         app:layout_constraintTop_toBottomOf="@+id/TelNumber" />
@@ -211,8 +211,8 @@
         android:id="@+id/GoToSon1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="67dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
         android:text="注册"
         app:layout_constraintStart_toEndOf="@+id/LoginButton"
         app:layout_constraintTop_toBottomOf="@+id/TelNumber" />
@@ -256,21 +256,21 @@
         android:id="@+id/StartThread_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
         android:text="启动线程"
-        app:layout_constraintBottom_toBottomOf="@+id/Thread_Button"
-        app:layout_constraintStart_toEndOf="@+id/ServiceButton" />
+        app:layout_constraintStart_toEndOf="@+id/ServiceButton"
+        app:layout_constraintTop_toBottomOf="@+id/GoToSimpleMathService" />
 
     <Button
         android:id="@+id/ServiceButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="156dp"
+        android:layout_marginEnd="168dp"
         android:text="启动服务"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/StartThread_Button" />
+        app:layout_constraintTop_toBottomOf="@+id/GoToDrawDemo" />
 
     <Button
         android:id="@+id/CloseServeButton"
@@ -287,13 +287,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="68dp"
-        android:layout_marginBottom="76dp"
         android:text="停止线程"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/CloseServeButton" />
+        app:layout_constraintStart_toEndOf="@+id/CloseServeButton"
+        app:layout_constraintTop_toBottomOf="@+id/StartThread_Button" />
 
     <Button
         android:id="@+id/GoToSimpleMathService"
@@ -314,5 +314,25 @@
         android:text="数据存储与访问"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/CloseServeButton" />
+
+    <Button
+        android:id="@+id/GoToInsideSaving"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="4dp"
+        android:text="内部存储"
+        app:layout_constraintStart_toStartOf="@+id/DataSave_Button"
+        app:layout_constraintTop_toBottomOf="@+id/Thread_Button" />
+
+    <Button
+        android:id="@+id/GoToNewPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="新界面"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
